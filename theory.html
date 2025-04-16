@@ -1,83 +1,276 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Theory Notes - Web Technology/048</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & Web Technology Textbook</title>
     <style>
-        /* ... (keep previous styles) ... */
-        .chapter {
-            background: white;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
         }
-        .subtopic {
-            margin-left: 20px;
-            color: #555;
+        .textbook {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .chapter {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .topic {
+            padding: 18px 25px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .topic:hover {
+            background: linear-gradient(135deg, #2980b9, #3498db);
+        }
+        .toggle-icon {
+            font-size: 22px;
+            transition: transform 0.3s;
+        }
+        .explanation {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            background: #f9f9f9;
+            border-left: 4px solid #3498db;
+        }
+        .explanation.show {
+            padding: 20px;
+            max-height: 2000px;
+        }
+        .explanation p {
+            margin: 10px 0;
+        }
+        .explanation strong {
+            color: #2c3e50;
+        }
+        code {
+            background: #eef2f7;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            tab-size: 4;
+            margin: 15px 0;
+        }
+        .note {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 0.95em;
         }
     </style>
 </head>
 <body>
-    <h1>📝 Theory Notes (10 Chapters)</h1>
-    
-    <div class="chapter">
-        <h2>Chapter 1: Introduction to Web Technologies</h2>
-        <div class="subtopic">
-            <h3>1.1 History of the Web</h3>
-            <p>Tim Berners-Lee's contribution, evolution from Web 1.0 to Web 3.0</p>
-            
-            <h3>1.2 Client-Server Architecture</h3>
-            <p>How browsers and servers communicate, stateless nature of HTTP</p>
-            
-            <h3>1.3 HTTP Protocol</h3>
-            <p>GET vs POST methods, status codes (200, 404, 500), headers</p>
+    <div class="textbook">
+        <h1>HTML & Web Technology Textbook</h1>
+        
+        <!-- Chapter 1 -->
+        <div class="chapter">
+            <div class="topic" onclick="toggleExplanation(1)">
+                <h2>Chapter 1: Introduction to HTML</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="explanation" id="explanation-1">
+                <p><strong>Topic:</strong> What is HTML?</p>
+                <p><strong>Explanation:</strong> HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser. It defines the structure of web content through elements like headings, paragraphs, and links.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>HTML is not a programming language - it's a markup language</li>
+                    <li>Uses tags like <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code></li>
+                    <li>Current version is HTML5 (released in 2014)</li>
+                </ul>
+                <div class="note">
+                    <strong>Note:</strong> All HTML documents must start with <code>&lt;!DOCTYPE html&gt;</code> declaration.
+                </div>
+            </div>
         </div>
+        
+        <!-- Chapter 2 -->
+        <div class="chapter">
+            <div class="topic" onclick="toggleExplanation(2)">
+                <h2>Chapter 2: Basic HTML Document Structure</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="explanation" id="explanation-2">
+                <p><strong>Topic:</strong> Essential HTML Elements</p>
+                <p><strong>Explanation:</strong> Every HTML document has a basic structure that includes these key elements:</p>
+                <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </pre>
+                <p><strong>Element Breakdown:</strong></p>
+                <ul>
+                    <li><code>&lt;!DOCTYPE html&gt;</code> - Document type declaration</li>
+                    <li><code>&lt;html&gt;</code> - Root element</li>
+                    <li><code>&lt;head&gt;</code> - Contains meta information</li>
+                    <li><code>&lt;body&gt;</code> - Contains visible content</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Chapter 3 -->
+        <div class="chapter">
+            <div class="topic" onclick="toggleExplanation(3)">
+                <h2>Chapter 3: HTML Text Elements</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="explanation" id="explanation-3">
+                <p><strong>Topic:</strong> Text Formatting in HTML</p>
+                <p><strong>Explanation:</strong> HTML provides various elements for text structure and formatting:</p>
+                <pre>
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;p&gt;This text is &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italicized&lt;/em&gt;.&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Unordered list item&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+    &lt;li&gt;Ordered list item&lt;/li&gt;
+&lt;/ol&gt;
+                </pre>
+                <p><strong>Common Text Elements:</strong></p>
+                <ul>
+                    <li>Headings: <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></li>
+                    <li>Paragraph: <code>&lt;p&gt;</code></li>
+                    <li>Bold: <code>&lt;strong&gt;</code> or <code>&lt;b&gt;</code></li>
+                    <li>Italic: <code>&lt;em&gt;</code> or <code>&lt;i&gt;</code></li>
+                    <li>Lists: <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Chapter 4 -->
+        <div class="chapter">
+            <div class="topic" onclick="toggleExplanation(4)">
+                <h2>Chapter 4: HTML Links and Images</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="explanation" id="explanation-4">
+                <p><strong>Topic:</strong> Connecting Content with Links and Images</p>
+                <p><strong>Explanation:</strong> HTML allows embedding hyperlinks and images using these elements:</p>
+                <pre>
+&lt;!-- Link to another page --&gt;
+&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+
+&lt;!-- Link to email --&gt;
+&lt;a href="mailto:contact@example.com"&gt;Email Us&lt;/a&gt;
+
+&lt;!-- Image --&gt;
+&lt;img src="image.jpg" alt="Description" width="200"&gt;
+                </pre>
+                <p><strong>Key Attributes:</strong></p>
+                <ul>
+                    <li><code>href</code> - Specifies the link destination</li>
+                    <li><code>src</code> - Specifies the image source</li>
+                    <li><code>alt</code> - Provides alternative text for images</li>
+                    <li><code>target="_blank"</code> - Opens link in new tab</li>
+                </ul>
+                <div class="note">
+                    <strong>Best Practice:</strong> Always include <code>alt</code> text for accessibility and SEO.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Chapter 5 -->
+        <div class="chapter">
+            <div class="topic" onclick="toggleExplanation(5)">
+                <h2>Chapter 5: HTML Tables</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="explanation" id="explanation-5">
+                <p><strong>Topic:</strong> Organizing Data with Tables</p>
+                <p><strong>Explanation:</strong> Tables are created using these elements:</p>
+                <pre>
+&lt;table border="1"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Header 1&lt;/th&gt;
+        &lt;th&gt;Header 2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Row 1, Cell 1&lt;/td&gt;
+        &lt;td&gt;Row 1, Cell 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Row 2, Cell 1&lt;/td&gt;
+        &lt;td&gt;Row 2, Cell 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+                </pre>
+                <p><strong>Table Elements:</strong></p>
+                <ul>
+                    <li><code>&lt;table&gt;</code> - Defines the table</li>
+                    <li><code>&lt;tr&gt;</code> - Table row</li>
+                    <li><code>&lt;th&gt;</code> - Table header cell</li>
+                    <li><code>&lt;td&gt;</code> - Table data cell</li>
+                    <li><code>&lt;caption&gt;</code> - Table caption</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- (Additional chapters would follow the same pattern) -->
+        
     </div>
 
-    <div class="chapter">
-        <h2>Chapter 2: HTML5 Fundamentals</h2>
-        <div class="subtopic">
-            <h3>2.1 Document Structure</h3>
-            <p>DOCTYPE declaration, html, head, body elements</p>
+    <script>
+        function toggleExplanation(chapterNum) {
+            const explanation = document.getElementById(`explanation-${chapterNum}`);
+            const toggleIcon = explanation.previousElementSibling.querySelector('.toggle-icon');
             
-            <h3>2.2 Semantic Elements</h3>
-            <p>header, nav, section, article, footer tags with examples</p>
+            explanation.classList.toggle('show');
             
-            <h3>2.3 Forms and Input Types</h3>
-            <p>text, email, password, date, range inputs with validation</p>
-        </div>
-    </div>
-
-    <div class="chapter">
-        <h2>Chapter 3: CSS3 Styling</h2>
-        <div class="subtopic">
-            <h3>3.1 Selectors</h3>
-            <p>Element, class, ID, attribute, and pseudo-selectors</p>
-            
-            <h3>3.2 Box Model</h3>
-            <p>Margin, border, padding, content areas with visual examples</p>
-            
-            <h3>3.3 Layout Systems</h3>
-            <p>Flexbox (display: flex) vs Grid (display: grid) comparison</p>
-        </div>
-    </div>
-
-    <!-- Continue similarly for Chapters 4-10 -->
-    
-    <div class="chapter">
-        <h2>Chapter 10: Emerging Technologies</h2>
-        <div class="subtopic">
-            <h3>10.1 Progressive Web Apps (PWAs)</h3>
-            <p>Service workers, manifest files, offline capabilities</p>
-            
-            <h3>10.2 WebAssembly</h3>
-            <p>Running C/C++ code in browsers, performance benefits</p>
-            
-            <h3>10.3 Web Components</h3>
-            <p>Custom elements, shadow DOM, HTML templates</p>
-        </div>
-    </div>
-
-    <a href="index.html" class="back-link">← Back to Home</a>
+            if (explanation.classList.contains('show')) {
+                toggleIcon.textContent = '−';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            } else {
+                toggleIcon.textContent = '+';
+                toggleIcon.style.transform = 'rotate(90deg)';
+            }
+        }
+    </script>
 </body>
 </html>
